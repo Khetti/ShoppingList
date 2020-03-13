@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
 import Header from './Components/Header';
 import ListItem from './Components/ListItem';
 import AddItem from './Components/AddItem';
-import {uuid} from 'uuidv4';
 
 const App = () => {
   const [items, setItems] = useState([
@@ -33,6 +32,7 @@ const App = () => {
       data={items}
       renderItem={({item}) => <ListItem item={item} deleteItem={deleteItem} />}
       />
+      <Image source={{uri: 'https://randomuser.me/api/portraits/men/1.jpg'}} style={styles.img}/>
     </View>
   );
 };
@@ -42,6 +42,11 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 60,
   },
+  img: {
+    width: 100,
+    height: 100,
+    borderRadius: 100 / 2,
+  }
 });
 
 export default App;
